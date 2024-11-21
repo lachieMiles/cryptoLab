@@ -1,5 +1,5 @@
 -- Drop Database (if Exists)
-DROP Database if Exists saved_db;
+DROP Database if Exists Users_db;
 
 -- Create New Database
-Create Database saved_db;
+Create Database Users_db;
