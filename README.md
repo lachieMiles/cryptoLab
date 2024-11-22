@@ -150,11 +150,14 @@ cryptolab/
 ## **Contributing**
 Contributions are welcome! Please follow these steps:
     1. Fork the repository.
+    
     2. Create a new branch
- ```bash
+
+    ```bash
     git checkout -b feature-name
-```
-    3.Commit changes and open a pull request.
+    ```
+    
+    3. Commit changes and open a pull request.
 
 ## **Licence**
 This project is licensed under the MIT License.

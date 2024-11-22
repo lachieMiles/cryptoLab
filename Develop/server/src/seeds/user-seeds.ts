@@ -1,27 +1,27 @@
-import bcrypt from 'bcrypt';
-import { User } from '../models/user';
+import { User } from '../models/user'; // Import the User model
 
+// Function to seed the user data
 export const seedUsers = async () => {
-    const users = [
-        {
-            username: 'admin',
-            email: 'admin@example.com',
-            password: await bcrypt.hash('admin123', 10), // Hash password
-            role: 'admin',
-            createdAt: new Date(),
-            updatedAt: new Date(),
-        },
-        {
-            username: 'user',
-            email: 'user@example.com',
-            password: await bcrypt.hash('user123', 10), // Hash password
-            role: 'user',
-            createdAt: new Date(),
-            updatedAt: new Date(),
-        },
-    ];
-
     try {
+        const users = [
+            {
+                username: 'Shareef Evans',
+                email: 'shareefevans@example.com',
+                password: 'password', // Plain password (hashed automatically by hook)
+            },
+            {
+                username: 'Henry Agustin',
+                email: 'henryagustin@example.com',
+                password: 'password', // Plain password (hashed automatically by hook)
+            },
+            {
+                username: 'Lachlan Miles',
+                email: 'lachlanmiles@example.com',
+                password: 'password', // Plain password (hashed automatically by hook)
+            },
+        ];
+
+        // Use bulkCreate to seed the user data
         await User.bulkCreate(users);
         console.log('Users seeded successfully!');
     } catch (err) {
