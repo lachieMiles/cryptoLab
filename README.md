@@ -153,9 +153,11 @@ Contributions are welcome! Please follow these steps:
     
     2. Create a new branch
 
-    ```bash
+``` bash
+
     git checkout -b feature-name
-    ```
+
+```
     
     3. Commit changes and open a pull request.
 
