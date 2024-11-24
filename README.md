@@ -114,7 +114,6 @@ To populate the database with default users for login functionality:
     npm run seed
 ```
 3. Default login credentials:
-    - Admin: admin@example.com / admin123
     - User: user@example.com / user123
 
 ## Project Structure
@@ -149,17 +148,12 @@ cryptolab/
 
 ## **Contributing**
 Contributions are welcome! Please follow these steps:
-    1. Fork the repository.
+1. Fork the repository.
     
-    2. Create a new branch
-
-``` bash
-
-    git checkout -b feature-name
-
-```
+2. Create a new branch
+  ```bash  git checkout -b feature-name ```
     
-    3. Commit changes and open a pull request.
+3. Commit changes and open a pull request.
 
 ## **Licence**
 This project is licensed under the MIT License.

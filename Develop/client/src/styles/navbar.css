@@ -1,0 +1,71 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center;
+    width: 100%; 
+    padding: 10px 20px; 
+    background-color: var(--brand); 
+    border-bottom: 1px solid var(--divider-primary); 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; /* Ensure it stays above other elements */
+  }
+  
+  /* Left Section (Logo and Brand Name) */
+  .navbar-left {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+  }
+  
+  /* Right Section (Links and Buttons) */
+  .navbar-right {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    margin-left: auto; /
+  }
+  
+  /* Logo */
+  .navbar-logo {
+    height: 40px; 
+  }
+  
+  /* Brand Name */
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-text);
+  }
+  
+  /* Links */
+  .navbar-link {
+    font-size: 16px;
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    background-color: var(--button-primary-hover);
+  }
+  
+  /* Button */
+  .navbar-button {
+    background-color: var(--button-primary-default);
+    color: var(--primary-text);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-button:hover {
+    background-color: var(--button-primary-hover);
+  }
+  
