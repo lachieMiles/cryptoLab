@@ -1,29 +1,17 @@
-import { User } from '../models/index'; // Import the initialized User model
+import { User } from '../models/user.js';
 
 export const seedUsers = async () => {
-    try {
-        const users = [
-            {
-                username: 'ShareefE',
-                email: 'shareefevans@example.com',
-                password: 'password', // This will be hashed by the beforeCreate hook
-            },
-            {
-                username: 'HenryA',
-                email: 'henryagustin@example.com',
-                password: 'password', // This will be hashed by the beforeCreate hook
-            },
-            {
-                username: 'LachieM',
-                email: 'lachlanmiles@example.com',
-                password: 'password', // This will be hashed by the beforeCreate hook
-            },
-        ];
-
-        // Insert users into the database
-        await User.bulkCreate(users);
-        console.log('Users seeded successfully!');
-    } catch (err) {
-        console.error('Error seeding users:', err);
-    }
+  try {
+    await User.bulkCreate(
+      [
+        { username: 'ShareefE', email: 'shareefevans@example.com', password: 'password' },
+        { username: 'HenryA', email: 'henryagustin@example.com', password: 'password' },
+        { username: 'LachieM', email: 'lachlanmiles@example.com', password: 'password' },
+      ],
+      { individualHooks: true } // Ensures that hooks like `beforeCreate` are triggered
+    );
+    console.log('Users seeded successfully!');
+  } catch (err) {
+    console.error('Error seeding users:', err);
+  }
 };
