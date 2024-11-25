@@ -36,6 +36,10 @@ export function UserFactory(sequelize: Sequelize): typeof User {
             username: {
                 type: DataTypes.STRING,
                 allowNull: false,
+                validate: {
+                    notNull: { msg: "Username is required" },
+                    notContains: { args: ' ', msg: "Username cannot contain spaces" },
+                },
             },
             email: {
                 type: DataTypes.STRING,
