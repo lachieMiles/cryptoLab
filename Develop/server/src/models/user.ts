@@ -47,7 +47,7 @@ export function UserFactory(sequelize: Sequelize): typeof User {
             }, 
             password: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: false, 
             },
         },
         {

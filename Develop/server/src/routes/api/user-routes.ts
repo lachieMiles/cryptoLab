@@ -50,8 +50,9 @@ router.put('/:id', async (req: Request, res: Response) => {
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
     try {
-        const user = await User.findByPk(id);
+        const user = await User.findByPk(id)
         if (user) {
             await user.destroy();
             res.json({ message: 'User deleted' })
