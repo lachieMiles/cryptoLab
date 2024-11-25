@@ -3,7 +3,7 @@ dotenv.config();
 
 interface Article {
   title: string;
-  thumbnail: string;
+  snippet: string;
   link: string;
 }
 
@@ -51,7 +51,7 @@ class NewsService {
 
     return {
       title: article.title,
-      thumbnail: article.thumbnail || '', // Optional field
+      snippet: article.snippet || '', // Optional field
       link: article.url,
     };
   }
