@@ -1,18 +1,16 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard'; // Example for Dashboard page
+//remove the default browser router and add the outlet component from react-router-dom to render the child routes
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Define your routes */}
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} /> {/* Example for Dashboard page only */}
-      </Routes>
-    </BrowserRouter>
+    <div className="container">
+      <Navbar />
+      <main>
+        <Outlet /> {/* Renders child routes */}
+      </main>
+    </div>
   );
-};
+}
 
 export default App;
