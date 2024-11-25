@@ -11,3 +11,5 @@ const fetchNews = async () => {
         return[];
     }
 };
+
+export default fetchNews;
