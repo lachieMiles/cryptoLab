@@ -1,67 +1,27 @@
 import express from 'express';
-import type { Request, Response } from 'express';
-import { User } from '../../models';
+import {
+  getAllUsers,
+  getUserById,
+  createUser,
+  updateUser,
+  deleteUser,
+} from '../../controllers/user-controller.js';
 
 const router = express.Router();
 
-router.get('/', async (_req: Request, res: Response) => {
-    try {
-        const users = await User.findAll({
-            attributes: { exclude: ['password'] }
-        });
-        res.json(users);
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-});
+// GET /users - Get all users
+router.get('/', getAllUsers);
 
-router.get('/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
-    try {
-        const user = await User.findByPk(id, {
-            attributes: { exclude: ['password'] }
-        });
-        if (!user) {
-            res.status(404).json({ message: 'No User Found' });
-        } else {
-            res.json(user);
-        } 
-    } catch (error: any) {
-        res.status(500).json({ message: error.message});
-    }
-});
+// GET /users/:id - Get a user by id
+router.get('/:id', getUserById);
 
-router.put('/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
-    const { username, password } = req.body;
-    try {
-        const user = await User.findByPk(id)
-        if (user) {
-            user.username = username;
-            user.password = password;
-            await user.save();
-            res.json(user)
-        } else {
-            res.status(404).json({ message: 'No User Found' });
-        } 
-    } catch (error: any) {
-        res.status(400).json({ message: error.message })
-    }
-});
+// POST /users - Create a new user
+router.post('/', createUser);
 
-router.delete('/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
-    try {
-        const user = await User.findByPk(id)
-        if (user) {
-            await user.destroy();
-            res.json({ message: 'User deleted' })
-        } else {
-            res.status(404).json({ message: 'No User Found'})
-        } 
-    } catch (error: any) {
-        res.status(500).json({ message: error.message})
-    }
-});
+// PUT /users/:id - Update a user by id
+router.put('/:id', updateUser);
+
+// DELETE /users/:id - Delete a user by id
+router.delete('/:id', deleteUser);
 
 export { router as userRouter };
