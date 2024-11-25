@@ -1,9 +1,12 @@
+import Table from '../components/Table';
+
 const Dashboard = () => {
-    return (
-        <div>
-            <h1>Dashboard</h1>
-            <p>Welcome to the Dashboard</p>
-        </div>
-    );
-}
+  return (
+    <div>
+      <h1>Daily Movement</h1>
+      <Table />
+    </div>
+  );
+};
+
 export default Dashboard;
