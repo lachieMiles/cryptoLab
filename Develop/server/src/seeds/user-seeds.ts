@@ -1,27 +1,26 @@
-import { User } from '../models/user'; // Import the User model
+import { User } from '../models/index'; // Import the initialized User model
 
-// Function to seed the user data
 export const seedUsers = async () => {
     try {
         const users = [
             {
                 username: 'Shareef Evans',
                 email: 'shareefevans@example.com',
-                password: 'password', // Plain password (hashed automatically by hook)
+                password: 'password', // This will be hashed by the beforeCreate hook
             },
             {
                 username: 'Henry Agustin',
                 email: 'henryagustin@example.com',
-                password: 'password', // Plain password (hashed automatically by hook)
+                password: 'password', // This will be hashed by the beforeCreate hook
             },
             {
                 username: 'Lachlan Miles',
                 email: 'lachlanmiles@example.com',
-                password: 'password', // Plain password (hashed automatically by hook)
+                password: 'password', // This will be hashed by the beforeCreate hook
             },
         ];
 
-        // Use bulkCreate to seed the user data
+        // Insert users into the database
         await User.bulkCreate(users);
         console.log('Users seeded successfully!');
     } catch (err) {

@@ -82,10 +82,10 @@ Follow these steps to set up the project locally:
 4. **Set up the environment variables**
 Create a .env file in the server folder with the following
 ```bash
-    DB_NAME='kanban_db'
-    DB_USER=''
-    DB_PASSWORD=''
-    JWT_SECRET_KEY=''
+    DB_NAME='cryptolab_db'
+    DB_USER='username'
+    DB_PASSWORD='password'
+    JWT_SECRET_KEY='your_secret_key'
 ```
 
 5. **Run the development servers**
@@ -114,7 +114,9 @@ To populate the database with default users for login functionality:
     npm run seed
 ```
 3. Default login credentials:
-    - User: user@example.com / user123
+    - User: Shareef Evans Password: password
+    - User: Henry Agustin Password: password
+    - User: Lachlan Miles Password: password
 
 ## Project Structure
 ```bash
@@ -151,7 +153,7 @@ Contributions are welcome! Please follow these steps:
 1. Fork the repository.
     
 2. Create a new branch
-  ```bash  git checkout -b feature-name ```
+  ```git checkout -b feature-name ```
     
 3. Commit changes and open a pull request.
 
