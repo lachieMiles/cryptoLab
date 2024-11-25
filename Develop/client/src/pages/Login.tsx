@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar"; // Import the navigation bar
 import logo from "../assets/logo.png"; // Import the logo
 import "../styles/login.css";
 
+
 const Login = () => {
   const [loginData, setLoginData] = useState({
     username: "",
