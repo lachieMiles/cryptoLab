@@ -4,17 +4,17 @@ export const seedUsers = async () => {
     try {
         const users = [
             {
-                username: 'Shareef Evans',
+                username: 'ShareefE',
                 email: 'shareefevans@example.com',
                 password: 'password', // This will be hashed by the beforeCreate hook
             },
             {
-                username: 'Henry Agustin',
+                username: 'HenryA',
                 email: 'henryagustin@example.com',
                 password: 'password', // This will be hashed by the beforeCreate hook
             },
             {
-                username: 'Lachlan Miles',
+                username: 'LachieM',
                 email: 'lachlanmiles@example.com',
                 password: 'password', // This will be hashed by the beforeCreate hook
             },
