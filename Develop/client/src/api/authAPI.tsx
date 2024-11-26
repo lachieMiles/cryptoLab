@@ -1,33 +1,29 @@
-import { UserLogin } from '../interfaces/UserLogin'; // Define the structure of the login input
+import { UserLogin } from '../interfaces/UserLogin';
 
-/**
- * Login function to authenticate the user.
- * @param userInfo - An object containing username and password.
- * @returns The server response containing user data or token.
- */
+const API_BASE_URL = 'http://localhost:3001'; // Backend server URL
+
 const login = async (userInfo: UserLogin) => {
+  // TODO: make a POST request to the login route
   try {
-    // Send POST request to the login endpoint
-    const response = await fetch('/auth/login', {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Indicate JSON data
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(userInfo), // Convert userInfo object to JSON string
+      body: JSON.stringify(userInfo),
     });
 
-    // Check if the response status is OK (2xx)
     if (!response.ok) {
-      const errorData = await response.json(); // Extract error details
-      throw new Error(`Error: ${errorData.message}`); // Throw error to be handled below
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
     }
 
-    // Parse the response JSON data
     const data = await response.json();
-    return data; // Return the data (e.g., token or user details)
+
+    return data;
   } catch (err) {
-    console.error('Error during login:', err); // Log error to console
-    throw err; // Reject the promise with an error
+    console.error('Error from user lgin:, ', err);
+    return Promise.reject('Could not fetch user info');
   }
 };
 
