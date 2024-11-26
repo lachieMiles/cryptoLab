@@ -12,13 +12,14 @@ class NewsService {
   private apiKey: string;
 
   constructor() {
-    this.baseURL = process.env.MARKETAUX_BASE_URL || '';
-    this.apiKey = process.env.MARKETAUX_API_KEY || '';
+    this.baseURL = process.env.MA_BASE_URL || '';
+    this.apiKey = process.env.MA_API_KEY || '';
   }
 
   // Build query for the MarketAUX API
   private buildQuery(): string {
-    return `${this.baseURL}/news/headlines?filter_entities=true&limit=1`;
+    return `${this.baseURL}/news/all?filter_entities=true&language=en&api_token=${this.apiKey}`;
+    // old Query `${this.baseURL}/news/headlines?filter_entities=true&limit=1`;
   }
 
   // Fetch data from MarketAUX API

@@ -9,13 +9,15 @@ const Table: React.FC = () => {
   const [offset, setOffset] = useState<number>(0);
 
   // fetch: async await function retrieving the first 10 crypto currencies from coin market cap
-  const fetchCryptoData = async (limit: number, offset: number) => {
+  const fetchCryptoData = async (limit: number, start: number) => {
+    console.log('Fetching data on page load...');
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/crypto?limit=${limit}&offset=${offset}`
+        `http://localhost:3001/api/crypto?limit=${limit}&start=${start}`
       );
       const data = await response.json();
+      console.log('Data received from API:', data);
       setCryptos((prevCryptos) => [...prevCryptos, ...data]);
     } catch (error) {
       console.error('Error fetching cryptocurrency data:', error);
@@ -37,36 +39,42 @@ const Table: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container-secondary">
       <table
         style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}
       >
         <thead>
           <tr>
             <th>#</th>
-            <th>Logo</th>
             <th>ID:</th>
-            <th>Name</th>
-            <th>Price (USD)</th>
-            <th>Marketcap</th>
+            <th>Name:</th>
+            <th>Price:</th>
+            <th>Marketcap:</th>
+            <th>Saved:</th>
           </tr>
         </thead>
         <tbody>
           {cryptos.map((crypto, index) => (
             <tr key={crypto.id}>
-              <td>{index + 1}</td>
               <td>
-                <img
-                  src={crypto.logo}
-                  alt={`${crypto.name} logo`}
-                  width={30}
-                  height={30}
-                />
+                <div className="div-horizontal">
+                  {index + 1}.{' '}
+                  <img
+                    className="crypto-logo"
+                    src={crypto.logo}
+                    alt={`${crypto.name} logo`}
+                    width={30}
+                    height={30}
+                  />
+                </div>
               </td>
               <td>{crypto.symbol}</td>
               <td>{crypto.name}</td>
               <td>${crypto.price.toFixed(2)}</td>
               <td>${crypto.marketCap.toFixed(2)}</td>
+              <td className="no-padding">
+                <button className="button-like">❤️</button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -75,12 +83,7 @@ const Table: React.FC = () => {
       {loading ? (
         <p>🙏 Loading...</p>
       ) : (
-        <button
-          onClick={handleLoadMore}
-          style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}
-        >
-          Load More
-        </button>
+        <button onClick={handleLoadMore}>Load More</button>
       )}
     </div>
   );

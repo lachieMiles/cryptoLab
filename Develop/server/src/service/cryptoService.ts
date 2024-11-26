@@ -50,6 +50,7 @@ class CryptoService {
   // Fetch data from CoinMarketCap API
   private async fetchFromAPI(query: string): Promise<any> {
     try {
+      console.log('api key test', this.apiKey);
       const response = await fetch(query, {
         method: 'GET',
         headers: {
