@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { NewsCards } from '../interfaces/NewsCard';
 import '../index.css';
-import moonIcon from '../assets/moon-stars.png';
+import { NewsCards } from '../interfaces/NewsCard';
+import moon from '../assets/Frame 99.png';
 
-const mockNews = [
+const mockNews: NewsCards[] = [
   {
-    title: 'Flare Networks to Build A DeFi Hub Powered by Data and Trust',
+    title: 'Breaking: Cryptocurrency Market Surges',
     description:
-      'Flare Networks, an emerging blockchain project, is rapidly shaping the future of decentralized finance (DeFi) The post Flare Networks to Build A D...',
+      'Ripples XRP is down 6% on Tuesday following record profit-taking among investors as its percentage of total supply in profit reached very high levels in the past week. This follows Ripple Labs donating another $25 million to the pro-crypto Fairshake super PAC...',
     url: 'https://example.com/article1',
   },
 ];
@@ -35,7 +35,7 @@ const Card: React.FC = () => {
 
   // const fetchNews = async () => {
   //   try {
-  //     const newsData = await fetchNewsData(1, 0);
+  //     const newsData = await fetchNewsData(5,0);
   //     setNews(newsData);
   //   } catch (error) {
   //     console.error(error);
@@ -49,51 +49,40 @@ const Card: React.FC = () => {
   //     const response = await fetch(
   //       `/news/headlines?filter_entities=true&limit=${limit}&offset=${offset}`
   //     );
-  //     if (!response.ok) throw new Error('Unable to fetch News');
+  //     if (!response.ok)
+  //       throw new Error('Unable to fetch News');
   //     const data = await response.json();
-  //     return data.articles.map((article: NewsCards) => ({
+  //     return data.articles.map((article: any) => ({
   //       title: article.title,
-  //       description: article.description,
+  //       description: article.descrition,
   //       url: article.url,
-  //     }));
+  //     }))
   //   } catch (error) {
   //     console.error('Unable to fetch News data', error);
-  //     return [];
+  //     return[];
   //   }
   // };
 
   // useEffect(() => {
   //   fetchNews();
-  // }, []);
+  // })
 
   return (
-    <div>
-      <div>
-        <h2>Crypto News</h2>
-      </div>
+    <div className="container-card">
+      <h2>Crypto News</h2>
       <div>
         {loading ? (
-          <li>Loading news...</li>
+          <div>Loading news...</div>
         ) : (
           news.map((article, index) => (
-            <div className="container-tertiary remove-padding">
-              <div key={index} className="card">
-                <img
-                  src={moonIcon}
-                  alt="moon-news icon"
-                  className="logo-small"
-                />
-                <div className="card-column">
-                  <h3>{article.title}</h3>
-                  <p className="news-description">{article.description}</p>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Read Full Article
-                  </a>
-                </div>
+            <div key={index} className="card">
+              <img src={moon} className="logo-small" />
+              <div className="card-details">
+                <p className="text-bold">{article.title}</p>
+                <p className="text-subdued">{article.description}</p>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  Read Full Article
+                </a>
               </div>
             </div>
           ))
