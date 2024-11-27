@@ -32,3 +32,8 @@ sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
     console.log(`Server is listening on port ${PORT}`);
   });
 });
+
+// Default to 3001 for local development
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
