@@ -45,6 +45,7 @@
   --card-primary: #192430;
   --card-primary-outline: #242e39;
 }
+
 html {
   height: auto;
   overflow: auto;
@@ -345,7 +346,7 @@ table {
 th,
 td {
   text-align: left;
-  padding: 8px 80px 8px 8px;
+  padding: 8px 80px 12px 8px;
   font-size: 14px;
   font-weight: 400;
   color: var(--primary-text);
@@ -386,6 +387,13 @@ th {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.remove-padding {
+  padding-left: 0px !important;
+  padding-right: 80px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 /* 🟪 ------------------FORM STYLING------------------*/

@@ -12,8 +12,8 @@ class NewsService {
   private apiKey: string;
 
   constructor() {
-    this.baseURL = process.env.MARKETAUX_BASE_URL || '';
-    this.apiKey = process.env.MARKETAUX_API_KEY || '';
+    this.baseURL = process.env.MA_BASE_URL || '';
+    this.apiKey = process.env.MA_API_KEY || '';
   }
 
   // Build query for the MarketAUX API
