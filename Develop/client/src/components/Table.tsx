@@ -13,14 +13,14 @@ const Table: React.FC = () => {
   const fetchCryptoData = async (limit: number, start: number) => {
     console.log('Fetching data from API...');
     setLoading(true);
-  
+
     try {
       // Retrieve token from AuthService
       const token = AuthService.getToken();
       if (!token) {
         throw new Error('Authentication token is missing. Please log in.');
       }
-  
+
       // Fetch data from API with Authorization header
       const response = await fetch(
         `http://localhost:3001/api/crypto?limit=${limit}&start=${start}`,
@@ -31,21 +31,21 @@ const Table: React.FC = () => {
           },
         }
       );
-  
+
       // Handle non-OK responses
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to fetch crypto data');
       }
-  
+
       // Parse and validate response data
       const data = await response.json();
       console.log('Data received from API:', data);
-  
+
       if (!Array.isArray(data)) {
         throw new Error('Unexpected response format. Expected an array.');
       }
-  
+
       setCryptos((prevCryptos) => [...prevCryptos, ...data]); // Append new data
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -80,9 +80,9 @@ const Table: React.FC = () => {
           <tr>
             <th>#</th>
             <th>ID:</th>
-            <th>Name:</th>
+            <th className="hide-info hide-info-one">Name:</th>
             <th>Price:</th>
-            <th>Marketcap:</th>
+            <th className="hide-info">Marketcap:</th>
             <th>Saved:</th>
           </tr>
         </thead>
@@ -102,9 +102,9 @@ const Table: React.FC = () => {
                 </div>
               </td>
               <td>{crypto.symbol}</td>
-              <td>{crypto.name}</td>
+              <td className="hide-info">{crypto.name}</td>
               <td>${crypto.price.toFixed(2)}</td>
-              <td>${crypto.marketCap.toFixed(2)}</td>
+              <td className="hide-info">${crypto.marketCap.toFixed(2)}</td>
               <td className="no-padding">
                 <button className="button-like">❤️</button>
               </td>

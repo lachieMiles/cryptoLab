@@ -45,9 +45,9 @@
   --card-primary: #192430;
   --card-primary-outline: #242e39;
 }
-html{
+html {
   height: auto;
-  Overflow: auto;
+  overflow: auto;
 }
 
 body {
@@ -66,8 +66,8 @@ body {
 }
 
 .logo-big {
-  width: 48px;
-  height: 48px;
+  width: 100px;
+  height: 100px;
 }
 
 .crypto-logo {
@@ -271,6 +271,52 @@ button:active {
 
 /* 🟪 ------------------NAVBAR STYLING------------------*/
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: var(--brand);
+  border-bottom: 1px solid var(--divider-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.navbar-link {
+  font-size: 14px;
+  color: var(--primary-text);
+  text-decoration: none !important;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--primary-subdued-text);
+}
+
 /* 🟪 ------------------TABLE STYLING------------------*/
 
 table {
@@ -324,4 +370,101 @@ th {
   gap: 15px;
 }
 
-/* 🟪 ------------------RESPONSIVE STYLING------------------*/
+/* 🟪 ------------------FORM STYLING------------------*/
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 50px 50px;
+  border-radius: 30px;
+  margin: 150px auto;
+}
+
+.container-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+.wrapper-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.reduce-margin {
+  margin-bottom: -15px;
+}
+
+/* 🟪------------------ERROR MESSAGE------------------*/
+
+.error-message {
+  color: rgb(255, 0, 72);
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 🟪------------------RESPONSIVE STYLING------------------*/
+
+@media only screen and (max-width: 1100px) {
+  .container-secondary {
+    width: 800px;
+  }
+
+  .th,
+  td {
+    padding: 8px 40px 8px 8px;
+  }
+
+  .hide-info-two {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .container-form {
+    width: 90vw;
+    overflow: hidden;
+  }
+
+  .wrapper-inputs {
+    width: 100%;
+  }
+
+  label {
+    margin-left: 100px;
+  }
+
+  .input-primary {
+    max-width: 80%;
+  }
+
+  .button-full-width {
+    width: 80%;
+  }
+
+  .navbar-link {
+    display: none;
+  }
+
+  .hide-info {
+    display: none;
+  }
+
+  .container-secondary {
+    width: auto;
+  }
+
+  .th,
+  td {
+    padding: 8px 40px 8px 8px;
+  }
+}

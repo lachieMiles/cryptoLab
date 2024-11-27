@@ -1,15 +1,14 @@
-import { useState, FormEvent, ChangeEvent } from "react";
-import Auth from "../utils/auth";
-import { login } from "../api/authAPI";
-import Navbar from "../components/Navbar"; // Import the navigation bar
-import logo from "../assets/logo.png"; // Import the logo
-import "../styles/login.css";
-
+import { useState, FormEvent, ChangeEvent } from 'react';
+import Auth from '../utils/auth';
+import { login } from '../api/authAPI';
+import Navbar from '../components/Navbar'; // Import the navigation bar
+import logo from '../assets/logo.png'; // Import the logo
+import '../index.css';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
   const [error, setError] = useState<string | null>(null); // Error state
   const [loading, setLoading] = useState(false); // Loading state
@@ -27,7 +26,7 @@ const Login = () => {
     setError(null);
 
     if (!loginData.username || !loginData.password) {
-      setError("Both username and password are required.");
+      setError('Both username and password are required.');
       return;
     }
 
@@ -36,8 +35,8 @@ const Login = () => {
       const data = await login(loginData);
       Auth.login(data.token);
     } catch (err) {
-      console.error("Failed to login", err);
-      setError("Invalid username or password. Please try again.");
+      console.error('Failed to login', err);
+      setError('Invalid username or password. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -47,16 +46,16 @@ const Login = () => {
     <div>
       {/*navigation bar */}
       <Navbar />
-      <div className="container-main">
+      <div className="container-form">
         {/* Logo and Title */}
-        <div className="logo-container">
-          <img id= "logo" src={logo} alt="CryptoLab Logo" className="logo-big" />
-          <h1 className="logo-title">CryptoLab</h1>
+        <div className="container-logo">
+          <img id="logo" src={logo} alt="CryptoLab Logo" className="logo-big" />
+          <h1>CryptoLab</h1>
         </div>
 
         {/* Login Form */}
         <form id="login-form" onSubmit={handleSubmit}>
-          <div className="wrapper-inputs">
+          <div className="wrapper-inputs reduce-margin">
             <label htmlFor="username">Username</label>
             <input
               id="username"
@@ -79,8 +78,12 @@ const Login = () => {
             />
           </div>
           {error && <p className="text-subdued error-message">{error}</p>}
-          <button type="submit" className="button-full-width" disabled={loading}>
-            {loading ? "Logging in..." : "Login to CryptoLab"}
+          <button
+            type="submit"
+            className="button-full-width"
+            disabled={loading}
+          >
+            {loading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
       </div>

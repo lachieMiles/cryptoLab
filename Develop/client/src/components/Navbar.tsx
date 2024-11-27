@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import AuthService from "../utils/auth"; // Handles authentication logic
-import "../styles/navbar.css"; // Custom CSS for styling
-import logo from "../assets/logo.png"; // Logo image path
+import { Link, useNavigate } from 'react-router-dom';
+import AuthService from '../utils/auth'; // Handles authentication logic
+import '../index.css';
+import logo from '../assets/logo.png'; // Logo image path
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,15 +9,15 @@ const Navbar = () => {
 
   const handleLogout = () => {
     AuthService.logout();
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
     <nav className="navbar">
       {/* Left section: Logo and CryptoLab */}
       <div className="navbar-left">
-        <img src={logo} alt="CryptoLab Logo" className="navbar-logo" />
-        <span className="navbar-brand">CryptoLab</span>
+        <img src={logo} alt="CryptoLab Logo" className="logo-small" />
+        <span className="text-bold">CryptoLab</span>
       </div>
 
       {/* Right section: Navigation links */}
@@ -30,9 +30,7 @@ const Navbar = () => {
             <Link to="/saved" className="navbar-link">
               Saved
             </Link>
-            <button className="navbar-button" onClick={handleLogout}>
-              Log Out
-            </button>
+            <button onClick={handleLogout}>Log Out</button>
           </>
         ) : (
           <Link to="/login" className="navbar-button">
