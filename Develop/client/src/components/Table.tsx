@@ -114,9 +114,11 @@ const Table: React.FC = () => {
       </table>
 
       {loading ? (
-        <p>🙏 Loading...</p>
+        <p className="centred">🙏 Loading...</p>
       ) : (
-        <button onClick={handleLoadMore}>Load More</button>
+        <button className="centred" onClick={handleLoadMore}>
+          Load More
+        </button>
       )}
     </div>
   );

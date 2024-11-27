@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import AuthService from '../utils/auth'; // Handles authentication logic
 import '../index.css';
-import logo from '../assets/logo.png'; // Logo image path
+import logo from '../assets/alien.png'; // Logo image path
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Navbar = () => {
             <button onClick={handleLogout}>Log Out</button>
           </>
         ) : (
-          <Link to="/login" className="navbar-button">
+          <Link to="/login" className="navbar-link">
             Log In
           </Link>
         )}

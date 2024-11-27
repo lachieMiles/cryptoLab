@@ -64,6 +64,7 @@ const Login = () => {
               className="input-primary"
               value={loginData.username}
               onChange={handleChange}
+              placeholder="😯 JohnSmith..."
             />
           </div>
           <div className="wrapper-inputs">
@@ -75,6 +76,7 @@ const Login = () => {
               className="input-primary"
               value={loginData.password}
               onChange={handleChange}
+              placeholder="🤫 password..."
             />
           </div>
           {error && <p className="text-subdued error-message">{error}</p>}

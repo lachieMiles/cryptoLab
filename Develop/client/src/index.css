@@ -66,8 +66,8 @@ body {
 }
 
 .logo-big {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 }
 
 .crypto-logo {
@@ -137,6 +137,19 @@ a {
   margin: 0px 0;
 }
 
+.container-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 90%;
+  max-width: 1000px;
+  margin-bottom: 30px;
+  margin-left: -85px;
+  height: 100%;
+  gap: 30px;
+}
+
 .container-main {
   display: flex;
   flex-direction: column;
@@ -182,6 +195,10 @@ a {
   justify-content: left;
   width: 100%;
   padding-left: 8px;
+}
+
+.centred {
+  margin-left: -100px;
 }
 
 /* 🟪 ------------------FORM STYLING------------------*/
@@ -362,6 +379,7 @@ th {
   padding: 30px;
   border-radius: 25px;
   border: 1px solid var(--card-primary-outline);
+  width: 100%;
 }
 
 .card-details {
