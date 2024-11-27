@@ -1,10 +1,6 @@
 import { UserLogin } from '../interfaces/UserLogin';
 
-const API_BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://cryptolab-rc3l.onrender.com' // Use Render backend URL in production
-    : 'http://localhost:3001'; // Use local backend in development
-
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001'; // Dynamic backend URL
 
 const login = async (userInfo: UserLogin) => {
   try {
