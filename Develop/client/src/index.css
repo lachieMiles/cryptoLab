@@ -45,9 +45,9 @@
   --card-primary: #192430;
   --card-primary-outline: #242e39;
 }
-html{
+html {
   height: auto;
-  Overflow: auto;
+  overflow: auto;
 }
 
 body {
@@ -184,6 +184,10 @@ a {
   padding-left: 8px;
 }
 
+.no-padding {
+  padding: 0px;
+}
+
 /* 🟪 ------------------FORM STYLING------------------*/
 
 form {
@@ -282,7 +286,7 @@ table {
 th,
 td {
   text-align: left;
-  padding: 8px 80px 8px 8px;
+  padding: 8px 80px 12px 8px;
   font-size: 14px;
   font-weight: 400;
   color: var(--primary-text);
@@ -316,12 +320,26 @@ th {
   padding: 30px;
   border-radius: 25px;
   border: 1px solid var(--card-primary-outline);
+  width: 900px;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card-details {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.remove-padding {
+  padding-left: 0px !important;
+  padding-right: 80px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 /* 🟪 ------------------RESPONSIVE STYLING------------------*/
