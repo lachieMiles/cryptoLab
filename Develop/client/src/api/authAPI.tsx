@@ -4,7 +4,7 @@ import { UserLogin } from '../interfaces/UserLogin';
 
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch(`/auth/login`, {
+    const response = await fetch(`https://cryptolab-rc3l.onrender.com`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
