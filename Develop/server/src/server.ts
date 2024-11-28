@@ -9,7 +9,7 @@ import { sequelize } from './models/index.js';
 import cryptoRouter from './routes/api/crypto-routes.js';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 1000;
 
 // Serves static files in the entire client's dist folder
 app.use(express.static('../client/dist'));
