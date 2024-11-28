@@ -11,9 +11,10 @@ import cryptoRouter from './routes/api/crypto-routes.js';
 const app = express();
 const PORT = process.env.PORT || 1000;
 
+app.options('*', cors());
+
 // Serves static files in the entire client's dist folder
-app.use(express.static('../client/dist'));
-app.use(cors());
+
 app.use(
   cors({
     origin: [
@@ -25,10 +26,9 @@ app.use(
   })
 );
 
-
+app.use(express.static('../client/dist'));
 app.use(express.json());
 app.use(routes);
-app.use(express.json());
 app.use('/api/crypto', cryptoRouter);
 
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
