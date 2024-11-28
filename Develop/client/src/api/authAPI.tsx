@@ -1,10 +1,10 @@
 import { UserLogin } from '../interfaces/UserLogin';
 
-const API_BASE_URL ='http://localhost:10000'; // Dynamic backend URL
+//const API_BASE_URL ='http://localhost:10000'; // Dynamic backend URL
 
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch(`/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
