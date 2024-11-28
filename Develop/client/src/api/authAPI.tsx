@@ -1,6 +1,8 @@
 import { UserLogin } from '../interfaces/UserLogin';
 
-//const API_BASE_URL ='http://localhost:10000'; // Dynamic backend URL
+
+const API_BASE_URL = 'http://localhost:3001'; // Dynamic backend URL
+
 
 const login = async (userInfo: UserLogin) => {
   try {

@@ -5,7 +5,7 @@ import './index.css';
 
 import App from './App.tsx';
 import Dashboard from './pages/Dashboard.tsx';
-//import ErrorPage from './pages/ErrorPage.tsx'; // still building
+import ErrorPage from './pages/ErrorPage.tsx'; // still building
 import Login from './pages/Login.tsx';
 //import Saved from './pages/Saved.tsx'; // still building
 
@@ -13,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true, // Default route
