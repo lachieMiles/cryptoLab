@@ -12,21 +12,17 @@ import authRoutes from './routes/auth-routes.js';
 const app = express();
 const PORT = process.env.PORT || 1000;
 
-app.options('*', cors());
+//app.options('*', cors());
 
 // Serves static files in the entire client's dist folder
 
 app.use('/auth', authRoutes);
-app.use(
-  cors({
-    origin: [
-      'https://cryptolab-rc3l.onrender.com', // Deployed frontend
-      'http://localhost:5173', // Local development frontend
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true, // Allow cookies and authorization headers
-  })
-);
+
+app.use(cors({
+  origin: "https://cryptolab-rc3l.onrender.com",
+  allowedHeaders: ["Content-Type"],
+  credentials: true,
+}));
 
 app.use(express.static('../client/dist'));
 app.use(express.json());
