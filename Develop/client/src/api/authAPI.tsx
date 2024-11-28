@@ -1,12 +1,11 @@
 import { UserLogin } from '../interfaces/UserLogin';
 
-
-const API_BASE_URL = 'http://localhost:3001'; // Dynamic backend URL
-
+const API_BASE_URL = 'http://localhost:3001'; // Backend server URL
 
 const login = async (userInfo: UserLogin) => {
+  // TODO: make a POST request to the login route
   try {
-    const response = await fetch(`https://cryptolab-rc3l.onrender.com`, {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +22,7 @@ const login = async (userInfo: UserLogin) => {
 
     return data;
   } catch (err) {
-    console.error('Error from user login:', err);
+    console.error('Error from user lgin:, ', err);
     return Promise.reject('Could not fetch user info');
   }
 };
