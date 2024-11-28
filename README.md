@@ -65,7 +65,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**
 ```bash
-   git clone https://github.com/your-repo/cryptolab.git
+   git clone https://github.com/lachieMiles/cryptoLab
 ```
 
 2. **Navigate to the project directory**
@@ -83,22 +83,38 @@ Follow these steps to set up the project locally:
 Create a .env file in the server folder with the following
 ```bash
     DB_NAME='cryptolab_db'
-    DB_USER='username'
-    DB_PASSWORD='password'
+    DB_USER='postgres'
+    DB_PASSWORD='password' //your postgres password
     JWT_SECRET_KEY='your_secret_key'
 ```
 
-5. **Run the development servers**
-- Start the back-end
+5. **Create DB and Seed**
+Create a DB folder in your postgres and seed the table (root)
+
+For Database:
+  open DB folder in server then bash
 ```bash
-    cd server && npm start
+  psql -U postgres
 ```
-- Start the front-end
+ follow the prompt and just type
 ```bash
-    cd client && npm run dev
+  \i schema.sql
+```
+  server folder:
+```bash
+  npm i
+  npm run build
+  npm run seed
 ```
 
-6. **Open the app in your browser at** http://localhost:3000.
+5. **Run the development servers**
+- To start deploying go to Development folder
+```bash
+  npm i
+  npm run start:dev
+```
+
+6. **Open the app in your browser at** http://localhost:3001.
 
 ## Usage
 1. Register or log in to the application using secure authentication.
